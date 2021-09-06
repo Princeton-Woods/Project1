@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-<<<<<<< HEAD
   
   <servlet>
   	<servlet-name>LoginServlet</servlet-name>
@@ -8,8 +7,13 @@
   </servlet>
   
   <servlet>
-  	<servlet-name>EmployeeLoggedInServlet</servlet-name>
-  	<servlet-class>com.servlets.EmployeeLoggedInServlet</servlet-class>
+  	<servlet-name>CreateTicketServlet</servlet-name>
+  	<servlet-class>com.servlets.CreateTicketServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>PastTicketsServlet</servlet-name>
+  	<servlet-class>com.servlets.PastTicketsServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -18,42 +22,18 @@
   </servlet-mapping>
   
   <servlet-mapping>
-  	<servlet-name>EmployeeLoggedInServlet</servlet-name>
-  	<url-pattern>/EmployeeLoggedInServlet</url-pattern>
+  	<servlet-name>CreateTicketServlet</servlet-name>
+  	<url-pattern>/CreateTicketServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>PastTicketsServlet</servlet-name>
+  	<url-pattern>/PastTicketsServlet</url-pattern>
+  </servlet-mapping>
+  
   
   <welcome-file-list>
  	<welcome-file>login.jsp</welcome-file>
  </welcome-file-list>
   
-=======
-	<servlet>
-		<servlet-name>AddServ</servlet-name>
-		<servlet-class>com.servlets.AddServlet</servlet-class>
-	</servlet>
-
-	<servlet>
-		<servlet-name>DeleteServ</servlet-name>
-		<servlet-class>com.servlets.DeleteServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>ModServ</servlet-name>
-		<servlet-class>com.servlets.ModifyServlet</servlet-class>
-	</servlet>
-	
-	
-	
-	<servlet-mapping>
-		<servlet-name>AddServ</servlet-name>
-		<url-pattern>/Add</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>DeleteServ</servlet-name>
-		<url-pattern>/Delete</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>ModServ</servlet-name>
-		<url-pattern>/Modify</url-pattern>
-	</servlet-mapping>
->>>>>>> 4e9bbe131e61e490fe46470075611831ed8529eb
 </web-app>

@@ -5,13 +5,15 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "pendingreimbursements")
 public class PendingTickets {
 	
-	PendingTickets() {
+	public PendingTickets() {
 		
 	}
 	
@@ -21,6 +23,14 @@ public class PendingTickets {
 		this.description = description;
 		this.timeStamp = timeStamp;
 	}
+	
+	@ManyToOne
+	@JoinColumn(name="typeId")
+	private PendingTickets typeTicket;
+	
+	@ManyToOne
+	@JoinColumn(name="empId")
+	private PendingTickets empTicket;
 
 	@Id
 	@Column(name = "pendId")

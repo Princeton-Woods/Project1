@@ -32,10 +32,27 @@ public class EmployeesDAO {
 			.setParameter("password", password)
 			.list();
 		if (result.isEmpty()) {
+			session.close();
 			return false;
 		}
 		else
+			session.close();
 			return true;
+	}
+	
+	public int getCurrentUserId(String username, String password) {
+		Configuration cfg = new Configuration();
+		cfg.configure("hibernate.cfg.xml");
+		SessionFactory factory = cfg.buildSessionFactory();
+		Session session = factory.openSession();
+		String hql = "Select e.id FROM Employees e WHERE e.username= :username and e.password= :password";
+		List result =  session.createQuery(hql)
+			.setParameter("username", username)
+			.setParameter("password", password)
+			.list();
+		int iResult = (int) result.get(0);
+		//String sResult = Integer.toString(iResult);
+		return iResult;
 	}
 	
 	public String getName(String username, String password) {
