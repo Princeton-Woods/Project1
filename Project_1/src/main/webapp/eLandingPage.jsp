@@ -8,10 +8,8 @@
 <%@include file="all_js_css.jsp" %>
 </head>
 <body>
-	
 	<div class="container">
 		<h1>Employee Logged In</h1>
-		
 			<br>
 			<h4>${welcome}</h4>
 			<br>
@@ -22,10 +20,6 @@
 			<a href="http://localhost:8080/Project_1/eCreateTicket.jsp">
 				<button type="button" name="but" value="create" class="btn btn-primary">Create Ticket</button>
 			</a>
-		
-	
-	</div>
-	
 	</div>
 </body>
 </html>

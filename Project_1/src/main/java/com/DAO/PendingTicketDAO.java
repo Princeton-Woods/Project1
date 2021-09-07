@@ -13,12 +13,11 @@ import com.entities.PendingEmployeeJunction;
 import com.entities.PendingTickets;
 import com.entities.PendingTypeJunction;
 
+import com.ticket.helper.Factory;
+
 public class PendingTicketDAO {
 	
 	public boolean createTicket(String amount, String Description, String type, int empId) {
-		Configuration cfg = new Configuration();
-		cfg.configure("hibernate.cfg.xml");
-		SessionFactory factory = cfg.buildSessionFactory();
 		PendingTickets ticket = new PendingTickets();
 		PendingTypeJunction typeJunction = new PendingTypeJunction();
 		PendingEmployeeJunction empJunction = new PendingEmployeeJunction();
@@ -27,7 +26,7 @@ public class PendingTicketDAO {
 		ticket.setAmount(dAmount);
 		ticket.setDescription(Description);
 		ticket.setTimeStamp(date);
-		Session session = factory.openSession();
+		Session session = Factory.getFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		session.save(ticket);
 		transaction.commit();
@@ -51,18 +50,15 @@ public class PendingTicketDAO {
 		session.save(typeJunction);
 		session.save(empJunction);
 		transaction.commit();
+		session.close();
 		return true;
 	}
 	
 	public List<PendingTickets> getAllPendingTickets(int userId) {
-		Configuration cfg = new Configuration();
-		cfg.configure("hibernate.cfg.xml");
-		SessionFactory factory = cfg.buildSessionFactory();
-		Session session = factory.openSession();
+		Session session = Factory.getFactory().openSession();
 		String hql = "Select p FROM PendingTickets p inner join p.ticketType inner join p.empTicket WHERE p.id= :id"; 
-		List<PendingTickets> result= session.createQuery(hql)
-				.setParameter("id", userId)
-				.list();
+		List<PendingTickets> result= session.createQuery(hql).setParameter("id",userId).list();
+		session.close();
 		return result;
 	}
 
