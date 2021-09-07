@@ -15,6 +15,9 @@ import com.entities.PendingTypeJunction;
 
 import com.ticket.helper.Factory;
 
+//For PendingTickets list
+import java.sql.*;
+
 public class PendingTicketDAO {
 	
 	public boolean createTicket(String amount, String Description, String type, int empId) {
@@ -50,15 +53,24 @@ public class PendingTicketDAO {
 		session.save(typeJunction);
 		session.save(empJunction);
 		transaction.commit();
-		session.close();
 		return true;
 	}
 	
 	public List<PendingTickets> getAllPendingTickets(int userId) {
-		Session session = Factory.getFactory().openSession();
-		String hql = "Select p FROM PendingTickets p inner join p.ticketType inner join p.empTicket WHERE p.id= :id"; 
-		List<PendingTickets> result= session.createQuery(hql).setParameter("id",userId).list();
-		session.close();
+		//Session session = Factory.getFactory().openSession();
+		//String hql = "Select p FROM PendingTickets p inner join p.ticketType inner join p.empTicket WHERE p.id= id"; 
+		List<PendingTickets> result;  //= session.createQuery(hql).setParameter("id",userId).list();
+		
+		Connection connection = DriverManager.getConnection(url, username, password);
+		String sql = "Select * FROM pendingreimbursements inner join reimbursementtype inner join employee_reimbursement_junction WHERE empId= ?";
+		PreparedStatement preparedStatement = connection.prepareStatement(sql);		
+		preparedStatement.setInt(1, userId);
+		ResultSet resset = preparedStatement.executeQuery();
+
+		while(resset.next()) { //convert to string for user			
+			result.add(new PendingTickets(resset.getDouble(1),resset.getString(2), resset.getDate(3)));
+		}
+		
 		return result;
 	}
 
