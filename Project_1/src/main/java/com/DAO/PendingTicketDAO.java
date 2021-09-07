@@ -1,5 +1,6 @@
 package com.DAO;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -56,12 +57,12 @@ public class PendingTicketDAO {
 		return true;
 	}
 	
-	public List<PendingTickets> getAllPendingTickets(int userId) {
+	public List<PendingTickets> getAllPendingTickets(int userId) throws SQLException{
 		//Session session = Factory.getFactory().openSession();
 		//String hql = "Select p FROM PendingTickets p inner join p.ticketType inner join p.empTicket WHERE p.id= id"; 
-		List<PendingTickets> result;  //= session.createQuery(hql).setParameter("id",userId).list();
+		List<PendingTickets> result = new ArrayList<PendingTickets>();  //= session.createQuery(hql).setParameter("id",userId).list();
 		
-		Connection connection = DriverManager.getConnection(url, username, password);
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/project1", "root", "Zplasm123");
 		String sql = "Select * FROM pendingreimbursements inner join reimbursementtype inner join employee_reimbursement_junction WHERE empId= ?";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);		
 		preparedStatement.setInt(1, userId);

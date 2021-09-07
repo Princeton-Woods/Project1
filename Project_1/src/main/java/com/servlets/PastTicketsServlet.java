@@ -1,6 +1,7 @@
 package com.servlets;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.DAO.PendingTicketDAO;
@@ -18,7 +19,14 @@ public class PastTicketsServlet extends HttpServlet{
 		PendingTicketDAO pendDAO = new PendingTicketDAO();
 		
 		int empId = (int) request.getSession().getAttribute("currentUserId");
-		List<PendingTickets> listData = pendDAO.getAllPendingTickets(4);
+		List<PendingTickets> listData = null;
+		try {
+			listData = pendDAO.getAllPendingTickets(4);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		request.setAttribute("listData", listData);
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/ePastTickets.jsp");
 		rd.forward(request, response);

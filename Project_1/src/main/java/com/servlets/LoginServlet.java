@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet{
 				String welcome = "Welcome "+name+"!";
 				//String id = employeeDAO.getCurrentUserId(username, password);
 				request.getSession().setAttribute("currentUserId", employeeDAO.getCurrentUserId(username, password));
-				request.setAttribute("welcome", welcome);
+				request.setAttribute("Welcome", welcome);
 				RequestDispatcher rd = request.getRequestDispatcher("eLandingPage.jsp");
 				rd.forward(request, response);
 			} else {
