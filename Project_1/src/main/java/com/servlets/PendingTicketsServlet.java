@@ -14,17 +14,16 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class PastTicketsServlet extends HttpServlet{
+public class PendingTicketsServlet extends HttpServlet{
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PendingTicketDAO pendDAO = new PendingTicketDAO();
 		
-		int empId = (int) request.getSession().getAttribute("currentUserId");
 		List<jdbcPendingTickets> listData;
 		try {
-			listData = pendDAO.getAllPendingTickets(empId);
+			listData = pendDAO.getAllPendingTickets();
 			request.setAttribute("listData", listData);
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/ePastTickets.jsp");
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/mPendingTickets.jsp");
 			rd.forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -34,13 +34,24 @@ public class LoginServlet extends HttpServlet{
 			String password = request.getParameter("password");
 			
 			if(employeeDAO.verifyLogin(username, password) == true) {
-				String name = employeeDAO.getName(username, password);
-				String welcome = "Welcome "+name+"!";
-				//String id = employeeDAO.getCurrentUserId(username, password);
-				request.getSession().setAttribute("currentUserId", employeeDAO.getCurrentUserId(username, password));
-				request.setAttribute("Welcome", welcome);
-				RequestDispatcher rd = request.getRequestDispatcher("eLandingPage.jsp");
-				rd.forward(request, response);
+				if (employeeDAO.managerCheck(username, password) == true) { 
+					String name = employeeDAO.getName(username, password);
+					String welcome = "Welcome "+name+"!";
+					request.getSession().setAttribute("currentUserId", employeeDAO.getCurrentUserId(username, password));
+					request.setAttribute("welcome", welcome);
+					RequestDispatcher rd = request.getRequestDispatcher("mLandingPage.jsp");
+					rd.forward(request, response);
+				}
+				else {
+					
+					String name = employeeDAO.getName(username, password);
+					String welcome = "Welcome "+name+"!";
+					//String id = employeeDAO.getCurrentUserId(username, password);
+					request.getSession().setAttribute("currentUserId", employeeDAO.getCurrentUserId(username, password));
+					request.setAttribute("welcome", welcome);
+					RequestDispatcher rd = request.getRequestDispatcher("eLandingPage.jsp");
+					rd.forward(request, response);
+				}
 			} else {
 				request.setAttribute("message", "Invalid login please try again.");
 				RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
