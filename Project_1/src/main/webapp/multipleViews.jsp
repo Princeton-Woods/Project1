@@ -11,8 +11,24 @@
 <body>
 
 <div class="container">
-		<h1>Tickets</h1>
-		<form action="PastTicketsServlet" method="get">
+		<h1>Multiple Views</h1>
+		<br>
+		<p id="invalid">${type}</p>
+		<form action="MultipleViewServlet" method="post">
+		<div class="btn-group btn-group-toggle" data-toggle="buttons">
+		  <label class="btn btn-secondary">
+		    <input type="radio" name="toggle" value="pending" id="option1" onClick="submit"> Pending
+		  </label>
+		  <label class="btn btn-secondary">
+		    <input type="radio" name="toggle" value="approved" id="option2"> Approved
+		  </label>
+		  <label class="btn btn-secondary">
+		    <input type="radio" name="toggle" value="rejected" id="option3"> Rejected
+		  </label>
+		</div>
+		<input type="submit" class="btn btn-primary" value="Set Toggle" />
+		</form>>
+		<form action="MultipleViewServlet" method="get">
 			
 			<table class="table">
 			  <thead>
@@ -38,6 +54,7 @@
 			<br>
 			<br>
 		</form>
+	
 	
 	</div>
 

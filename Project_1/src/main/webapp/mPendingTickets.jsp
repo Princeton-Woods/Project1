@@ -11,25 +11,37 @@
 <body>
 
 <div class="container">
-		<h1>Tickets</h1>
-		<form action="PastTicketsServlet" method="get">
+		<h1>Pending</h1>
+		<form action="PendingTicketsServlet" method="get">
 			
 			<table class="table">
 			  <thead>
 			    <tr>
+			      <th scope="col">Id</th>
 			      <th scope="col">Amount</th>
 			      <th scope="col">Description</th>
 			      <th scope="col">Date</th>
 			      <th scope="col">Type</th>
+			      <th scope="col">Emp Id</th>
+			      <th scope="col">Approve</th>
+			      <th scope="col">Reject</th>
 			    </tr>
 			  </thead>
 			  <tbody>
 			  	<c:forEach var="ticket" items="${listData}">
 				    <tr>
+				    	<td><c:out value="${ticket.id}"/></td>
 				        <td><c:out value="${ticket.amount}"/></td>
 				        <td><c:out value="${ticket.description}"/></td>
 				        <td><c:out value="${ticket.timeStamp}"/></td>
 				        <td><c:out value="${ticket.type}"/></td>
+				        <td><c:out value="${ticket.empId}"/></td>
+				     <form action="ApproveServlet" method="post">
+				        <td><button type="submit" name="approveId" value="${ticket.id}" class="btn btn-primary">Approve</button></td>
+				     </form>
+					 <form action="RejectServlet" method="post">
+				        <td><button type="submit" name="rejectId" value="${ticket.id}" class="btn btn-primary">Reject</button></td>
+				     </form>
 				    </tr>
 			    </c:forEach>
 			  </tbody>
@@ -38,6 +50,7 @@
 			<br>
 			<br>
 		</form>
+	
 	
 	</div>
 

@@ -16,6 +16,26 @@
   	<servlet-class>com.servlets.PastTicketsServlet</servlet-class>
   </servlet>
   
+  <servlet>
+  	<servlet-name>PendingTicketsServlet</servlet-name>
+  	<servlet-class>com.servlets.PendingTicketsServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>RejectServlet</servlet-name>
+  	<servlet-class>com.servlets.RejectServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>ApproveServlet</servlet-name>
+  	<servlet-class>com.servlets.ApproveServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>MultipleViewServlet</servlet-name>
+  	<servlet-class>com.servlets.MultipleViewServlet</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/LoginServlet</url-pattern>
@@ -29,6 +49,26 @@
   <servlet-mapping>
   	<servlet-name>PastTicketsServlet</servlet-name>
   	<url-pattern>/PastTicketsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>PendingTicketsServlet</servlet-name>
+  	<url-pattern>/PendingTicketsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>RejectServlet</servlet-name>
+  	<url-pattern>/RejectServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>ApproveServlet</servlet-name>
+  	<url-pattern>/ApproveServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>MultipleViewServlet</servlet-name>
+  	<url-pattern>/MultipleViewServlet</url-pattern>
   </servlet-mapping>
   
   
