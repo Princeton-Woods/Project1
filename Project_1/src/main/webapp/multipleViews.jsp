@@ -5,27 +5,30 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Manage Tickets</title>
 <%@include file="all_js_css.jsp" %>
 </head>
 <body>
 
 <div class="container">
-		<h1>Multiple Views</h1>
+		<h1>All Tickets</h1>
 		<br>
 		<p id="invalid">${type}</p>
 		<form action="MultipleViewServlet" method="post">
 		<div class="btn-group btn-group-toggle" data-toggle="buttons">
-		  <label class="btn btn-secondary">
+		  <label class="btn btn-warning">
 		    <input type="radio" name="toggle" value="pending" id="option1" onClick="submit"> Pending
 		  </label>
-		  <label class="btn btn-secondary">
+		  <div class = "dividerView"></div>
+		  <label class="btn btn-success">
 		    <input type="radio" name="toggle" value="approved" id="option2"> Approved
 		  </label>
-		  <label class="btn btn-secondary">
+		  <div class = "dividerView"></div>
+		  <label class="btn btn-danger">
 		    <input type="radio" name="toggle" value="rejected" id="option3"> Rejected
 		  </label>
 		</div>
+		<div class = "dividerView"></div>
 		<input type="submit" class="btn btn-primary" value="Set Toggle" />
 		</form>>
 		<form action="MultipleViewServlet" method="get">

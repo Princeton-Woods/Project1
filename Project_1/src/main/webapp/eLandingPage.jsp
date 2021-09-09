@@ -10,22 +10,37 @@
 <body>
 	
 	<div class="container">
+	<div class="row">
+	<div class="col-md-6">
+	<div class = "card">
+	<div class = "boxlanding">
+	
 		<h1>Employee Logged In</h1>
+		<h4>${welcome}</h4>
 		
-			<br>
-			<h4>${welcome}</h4>
-			<br>
-			<br>
-			<a href="http://localhost:8080/Project_1/ePastTickets.jsp">
-				<button type="button" name="but" value="past" class="btn btn-primary">View Past Tickets</button>
-			</a>
+		<div class = "divider"></div>
+		<div>
 			<a href="http://localhost:8080/Project_1/eCreateTicket.jsp">
-				<button type="button" name="but" value="create" class="btn btn-primary">Create Ticket</button>
+				<button type="button" name="but" value="create" class="btn btn-success buttonsize">Create Ticket</button>
 			</a>
+		</div>
 		
+		<div class = "divider"></div>
+		
+		<div>
+			<a href="http://localhost:8080/Project_1/ePastTickets.jsp">
+				<button type="button" name="but" value="past" class="btn btn-primary buttonsize">View Past Tickets</button>
+			</a>
+		</div>
+		
+			
+
 	
 	</div>
-	
 	</div>
+	</div>
+	</div>
+	</div>
+	
 </body>
 </html>

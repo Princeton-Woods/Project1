@@ -10,35 +10,40 @@
 <body>
 
 	<div class="container">
-		<h1>Create Ticket</h1>
-		
-		<form action="CreateTicketServlet" method="post">
-			
+	<div class="row">
+    <div class="col-md-6">
+		<div class="card">
+		<form action="CreateTicketServlet" method="post" class = "box">
+			<h1>Create Ticket</h1>
 			<p id="invalid">${message}</p>
 			
-			<div class="form-group">
+
 				<label>Amount</label>
 				<input type="text" name="amount" id="username" class="form-control" placeholder="Enter Amount" maxlength="6" required/>
-			</div>
+
 		
-			<div class="form-group">
+
 				<label>Description</label>
 				<input type="text" name="description" id="password" class="form-control" placeholder="Enter Description" maxlength="255" required/>
-			</div>
-			<div class="form-group">
-				<label for="type">Choose a car:</label>
-				<select name="type" id="type">
-  					<option value="Lodging">Lodging</option>
-  					<option value="Travel">Travel</option>
-  					<option value="Food">Food</option>
-  					<option value="Other">Other</option>
+
+			<div class="dropdown">
+				<label for="type">Choose a type:</label>
+				<div>
+				<select class = "btn btn-secondary dropdown-toggle" name="type" id="type">
+  					<option class = "dropdown-item" value="Lodging">Lodging</option>
+  					<option class = "dropdown-item" value="Travel">Travel</option>
+  					<option class = "dropdown-item" value="Food">Food</option>
+  					<option class = "dropdown-item" value="Other">Other</option>
 				</select>
+				</div>
 			</div>
 			
 			<input type="submit" class="btn btn-primary" value="Submit" />
-			<br>
-			<br>
+
 		</form>
+	</div>
+	</div>
+	</div>
 	</div>
 
 </body>

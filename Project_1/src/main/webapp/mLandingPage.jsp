@@ -8,27 +8,46 @@
 <%@include file="all_js_css.jsp" %>
 </head>
 <body>
-	
 	<div class="container">
-		<h1>Manager Logged In</h1>
 		
-			<br>
+		<div class="row">
+		<div class="col-md-6">
+
+		<div class = "card">
+		<div class = "boxlanding">
+			<h1>Manager Logged In</h1>
 			<h4>${welcome}</h4>
-			<br>
-			<br>
-			<a href="http://localhost:8080/Project_1/multipleViews.jsp">
-				<button type="button" name="but" value="past" class="btn btn-primary">View All Tickets</button>
-			</a>
-			<a href="http://localhost:8080/Project_1/mPendingTickets.jsp">
-				<button type="button" name="but" value="create" class="btn btn-primary">View Pending Tickets</button>
-			</a>
+			
+			<div class = "divider"></div>
+			
+			<div>
 			<a href="http://localhost:8080/Project_1/eCreateTicket.jsp">
-				<button type="button" name="but" value="create" class="btn btn-primary">Create Ticket</button>
+				<button type="button" name="but" value="create" class="btn btn-success buttonsize">Create Ticket</button>
 			</a>
-		
-	
+			</div>
+			
+			<div class = "divider"></div>
+			
+			<div>
+			<a href="http://localhost:8080/Project_1/mPendingTickets.jsp">
+				<button type="button" name="but" value="create" class="btn btn-warning buttonsize">View Pending Tickets</button>
+			</a>
+			</div>
+			
+			<div class = "divider"></div>
+			
+			<div>
+			<a href="http://localhost:8080/Project_1/multipleViews.jsp">
+				<button type="button" name="but" value="past" class="btn btn-primary buttonsize">View All Tickets</button>
+			</a>
+			</div>
+
+
+		</div>
 	</div>
-	
 	</div>
+	</div>
+	</div>
+
 </body>
 </html>

@@ -5,13 +5,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Past Tickets</title>
 <%@include file="all_js_css.jsp" %>
 </head>
 <body>
 
 <div class="container">
-		<h1>Tickets</h1>
+		<h1>Past Tickets</h1>
 		<form action="PastTicketsServlet" method="get">
 			
 			<table class="table">
