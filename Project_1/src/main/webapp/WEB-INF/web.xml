@@ -1,31 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-	<servlet>
-		<servlet-name>AddServ</servlet-name>
-		<servlet-class>com.servlets.AddServlet</servlet-class>
-	</servlet>
-
-	<servlet>
-		<servlet-name>DeleteServ</servlet-name>
-		<servlet-class>com.servlets.DeleteServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>ModServ</servlet-name>
-		<servlet-class>com.servlets.ModifyServlet</servlet-class>
-	</servlet>
-	
-	
-	
-	<servlet-mapping>
-		<servlet-name>AddServ</servlet-name>
-		<url-pattern>/Add</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>DeleteServ</servlet-name>
-		<url-pattern>/Delete</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>ModServ</servlet-name>
-		<url-pattern>/Modify</url-pattern>
-	</servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<servlet-class>com.servlets.LoginServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>CreateTicketServlet</servlet-name>
+  	<servlet-class>com.servlets.CreateTicketServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>PastTicketsServlet</servlet-name>
+  	<servlet-class>com.servlets.PastTicketsServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>PendingTicketsServlet</servlet-name>
+  	<servlet-class>com.servlets.PendingTicketsServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>RejectServlet</servlet-name>
+  	<servlet-class>com.servlets.RejectServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>ApproveServlet</servlet-name>
+  	<servlet-class>com.servlets.ApproveServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>MultipleViewServlet</servlet-name>
+  	<servlet-class>com.servlets.MultipleViewServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>CreateTicketServlet</servlet-name>
+  	<url-pattern>/CreateTicketServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>PastTicketsServlet</servlet-name>
+  	<url-pattern>/PastTicketsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>PendingTicketsServlet</servlet-name>
+  	<url-pattern>/PendingTicketsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>RejectServlet</servlet-name>
+  	<url-pattern>/RejectServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>ApproveServlet</servlet-name>
+  	<url-pattern>/ApproveServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>MultipleViewServlet</servlet-name>
+  	<url-pattern>/MultipleViewServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  <welcome-file-list>
+ 	<welcome-file>login.jsp</welcome-file>
+ </welcome-file-list>
+  
 </web-app>
